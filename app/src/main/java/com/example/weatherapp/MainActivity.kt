@@ -31,7 +31,8 @@ import kotlinx.coroutines.withContext
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
-    private val API_KEY = "09d2270b0ebe9a93789a092d678e56e7"
+    private val API_KEY = BuildConfig.API_KEY
+
 
     private lateinit var historyAdapter: HistoryAdapter
     private lateinit var db: AppDatabase
