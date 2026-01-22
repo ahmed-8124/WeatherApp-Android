@@ -7,8 +7,8 @@ import android.content.pm.PackageManager
 import android.location.Geocoder
 import android.os.Bundle
 import android.util.Log
-//import android.view.GestureDetector
-//import android.view.MotionEvent
+import android.view.GestureDetector
+import android.view.MotionEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var historyAdapter: HistoryAdapter
     private lateinit var db: AppDatabase
     private lateinit var fusedLocationClient: FusedLocationProviderClient
-   // private lateinit var gestureDetector: GestureDetector
+    private lateinit var gestureDetector: GestureDetector
     private lateinit var tvCityName: TextView
     private lateinit var tvTemperature: TextView
     private lateinit var tvHumidity: TextView
@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity() {
         val rvHistory = findViewById<RecyclerView>(R.id.rvHistory)
                 // sliding gesture feature
 
-       /* gestureDetector = GestureDetector(this, object : GestureDetector.SimpleOnGestureListener() {
+       gestureDetector = GestureDetector(this, object : GestureDetector.SimpleOnGestureListener() {
             override fun onFling(e1: MotionEvent?, e2: MotionEvent, vx: Float, vy: Float): Boolean {
                 // Detect Swipe from Right to Left
                 val distanceX = (e1?.x ?: 0f) - e2.x
@@ -80,7 +80,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 return false
             }
-        })*/
+        })
         historyAdapter = HistoryAdapter(mutableListOf()) { clickedCity ->
             fetchAndOpenDetails(clickedCity)
         }
